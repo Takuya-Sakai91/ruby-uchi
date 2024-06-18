@@ -21,6 +21,9 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config
 
+# Install Rails
+RUN gem install rails
+
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle config set frozen false && \
