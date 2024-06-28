@@ -35,6 +35,8 @@ gem "bootsnap", require: false
 # Add vite_rails for Vite integration
 gem "vite_rails"
 
+gem "slim-rails"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
