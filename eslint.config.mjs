@@ -14,4 +14,11 @@ export default [
   ...tseslint.configs.recommended,
   ...fixupConfigRules(pluginReactConfig),
   eslintConfigPrettier,
+  {
+    settings: {
+      react: {
+        version: "detect"
+      },
+    },
+  },
 ];
