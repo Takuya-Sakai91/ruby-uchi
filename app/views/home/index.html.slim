@@ -1,0 +1,42 @@
+header
+  = image_tag 'service_logo.png', alt: 'ロゴ'
+  nav
+    ul
+      li
+        = link_to '遊び方', '#'
+      - if user_signed_in?
+        li
+          = link_to 'マイページ', '#'
+        li
+          = button_to 'ログアウト', destroy_user_session_path, method: :delete
+      - else
+        li
+          = link_to '新規登録', new_user_registration_path
+        li
+          = link_to 'ログイン', new_user_session_path
+main
+  h1 Ruby打ち
+  p
+    | Rubyメソッドも学べる！タイピングゲーム
+
+  - if user_signed_in?
+    p
+      | ようこそ、#{current_user.username}さん！
+      br
+      | 知っておくと仕事でも役立つ、頻繁に使用するメソッドから出題
+    p
+      = link_to 'スタート', '#', class: 'btn btn-primary'
+  - else
+    p
+      | タイピング結果をグラフで比較し成長を実感しよう！
+      br
+      | こちらから無料で登録
+    p
+      = link_to '新規登録', new_user_registration_path, class: 'btn btn-primary'
+    p
+      = link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary'
+    p
+      = link_to '登録せずにスタート', '#', class: 'btn btn-tertiary'
+
+footer
+  p &copy; 2024 natsuto6
