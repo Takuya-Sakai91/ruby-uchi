@@ -1,6 +1,9 @@
+import daisyui from "daisyui"
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./app/views/**/*.html.erb",
     "./app/views/**/*.html.slim",
     "./app/helpers/**/*.rb",
     "./app/frontend/**/*.js",
@@ -11,5 +14,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [daisyui],
 };
