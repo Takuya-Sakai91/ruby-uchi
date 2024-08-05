@@ -291,6 +291,18 @@ GEM
       sprockets (>= 3.0.0)
     stringio (3.1.0)
     strscan (3.1.0)
+    tailwindcss-rails (2.6.5)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.5-aarch64-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.5-arm-linux)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.5-arm64-darwin)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.5-x86_64-darwin)
+      railties (>= 7.0.0)
+    tailwindcss-rails (2.6.5-x86_64-linux)
+      railties (>= 7.0.0)
     temple (0.10.3)
     thor (1.3.1)
     tilt (2.4.0)
@@ -348,6 +360,7 @@ DEPENDENCIES
   slim-rails
   slim_lint
   sprockets-rails
+  tailwindcss-rails (~> 2.6)
   tzinfo-data
   vite_rails
   web-console

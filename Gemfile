@@ -69,3 +69,5 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'slim_lint', require: false
 end
+
+gem "tailwindcss-rails", "~> 2.6"
