@@ -14,12 +14,26 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
     },
   },
   plugins: [forms, typography, containerQueries, daisyui],
   daisyui: {
-    themes: ["cmyk"],
+    themes: [
+      {
+        mytheme: {
+          'primary': '#e60012',
+          'secondary': '#e71f19',
+          'accent': '#00ff00',
+          'neutral': '#ffffff',
+          'base-100': '#ffffff',
+          'info': '#38bdf8',
+          'success': '#ff00ff',
+          'warning': '#ffff00',
+          'error': '#ff0000',
+        },
+      },
+    ],
   },
 };
