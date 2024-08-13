@@ -12,9 +12,10 @@ html
     = vite_react_refresh_tag
     = vite_javascript_tag 'application'
 
-  body
-    p.notice
+  body class="bg-gray-100"
+    = render 'layouts/header'
+    p style="color: green"
       = notice
-    p.alert
+    p style="color: red"
       = alert
     = yield
