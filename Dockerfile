@@ -22,13 +22,12 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config curl
 
 # Install Node.js and yarn
-ARG NODE_VERSION=20.15.0
+ARG NODE_VERSION=20.16.0
 ARG YARN_VERSION=1.22.22
 ENV PATH=/usr/local/node/bin:$PATH
 RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
     /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
-    corepack enable && \
-    corepack prepare yarn@$YARN_VERSION --activate && \
+    npm install -g yarn@$YARN_VERSION && \
     rm -rf /tmp/node-build-master
 
 # Install application gems

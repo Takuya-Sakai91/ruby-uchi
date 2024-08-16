@@ -70,4 +70,4 @@ group :development do
   gem 'slim_lint', require: false
 end
 
-gem "tailwindcss-rails", "~> 2.6"
+gem 'tailwindcss-rails', '~> 2.6'

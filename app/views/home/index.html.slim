@@ -1,45 +1,34 @@
-header
-  = image_tag 'service_logo.png', alt: 'ロゴ'
-  nav
-    ul
-      li
-        = link_to '遊び方', '#'
-      - if user_signed_in?
-        li
-          = link_to 'マイページ', '#'
-        li
-          = button_to 'ログアウト', destroy_user_session_path, method: :delete
-      - else
-        li
-          = link_to '新規登録', new_user_registration_path
-        li
-          = link_to 'ログイン', new_user_session_path
-main
-  h1 Ruby打ち
-  p
+main class="container mx-auto text-center py-8"
+  h1 class="text-4xl font-bold mb-4" Ruby打ち
+  p class="text-lg mb-4"
     | Rubyメソッドも学べる！タイピングゲーム
+  p class="text-lg mb-4"
+    | タイピング結果をグラフで比較し成長を実感しよう！
+    br
+    | こちらから無料で登録
 
   - if user_signed_in?
-    p
+    p class="text-lg mb-4"
       | ようこそ、#{current_user.username}さん！
       br
       | 知っておくと仕事でも役立つ、頻繁に使用するメソッドから出題
     p
-      = link_to 'スタート', '#', class: 'btn btn-primary'
+      = link_to 'スタート', '#',
+        class: 'btn btn-wide bg-red-600 hover:bg-red-700 text-white ml-2'
   - else
-    p
-      | タイピング結果をグラフで比較し成長を実感しよう！
-      br
-      | こちらから無料で登録
-    p
-      = link_to '新規登録', new_user_registration_path, class: 'btn btn-primary'
-    p
-      = link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary'
-    p
-      = link_to '登録せずにスタート', '#', class: 'btn btn-tertiary'
+    div class="flex justify-center space-x-12"
+      = link_to '新規登録',
+        new_user_registration_path,
+        class: 'btn bg-red-600 hover:bg-red-700 text-white ml-2'
+      = link_to 'ログイン',
+        new_user_session_path,
+        class: 'btn btn-outline btn-primary'
+    div class="flex justify-center items-end"
+      = link_to '登録せずにスタート', '#',
+        class: 'py-4 link link-primary'
 
   div id="root"
   = vite_javascript_tag 'home.tsx'
 
-footer
+footer class="text-center py-4"
   p &copy; 2024 natsuto6
