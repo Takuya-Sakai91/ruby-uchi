@@ -27,6 +27,6 @@ jobs:
       - name: TypeScript Check
         run: yarn run tsc --noEmit
       - name: ESLint
-        run: yarn eslint ./app/javascript
+        run: yarn eslint ./app/frontend
       - name: Prettier
         run: yarn prettier --check .
