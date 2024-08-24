@@ -3,11 +3,11 @@
 class GamesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create show finish post methods]
 
+  def show; end
+
   def new; end
 
   def create; end
-
-  def show; end
 
   def finish; end
 

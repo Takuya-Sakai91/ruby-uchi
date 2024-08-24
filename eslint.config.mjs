@@ -5,7 +5,6 @@ import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 import { fixupConfigRules } from "@eslint/compat";
 import eslintConfigPrettier from "eslint-config-prettier";
 
-
 export default [
   { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   { languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } } } },
@@ -17,7 +16,7 @@ export default [
   {
     settings: {
       react: {
-        version: "detect"
+        version: "detect",
       },
     },
   },
