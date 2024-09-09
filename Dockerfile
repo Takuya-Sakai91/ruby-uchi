@@ -59,6 +59,17 @@ RUN apt-get update -qq && \
     npm install -g yarn && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
+# Install packages needed for Cypress (Xvfb and other dependencies)
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+    xvfb \
+    libgtk-3-0 \
+    libnss3 \
+    libxss1 \
+    libasound2 \
+    libgbm-dev \
+    libxshmfence-dev
+
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
