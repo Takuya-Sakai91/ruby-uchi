@@ -41,5 +41,6 @@
     "vite-plugin-react": "^4.0.1",
     "vite-plugin-ruby": "^5.0.0"
   },
-  "type": "module"
+  "type": "module",
+  "packageManager": "yarn@1.22.21"
 }
