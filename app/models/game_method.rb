@@ -2,5 +2,5 @@
 
 class GameMethod < ApplicationRecord
   belongs_to :game
-  belongs_to :method_ref, class_name: 'Method'
+  belongs_to :ruby_method
 end

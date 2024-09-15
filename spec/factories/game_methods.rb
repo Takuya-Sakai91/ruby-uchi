@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :game_method do
     game { nil }
-    method_ref { nil }
+    ruby_method { nil }
     order { 1 }
   end
 end
