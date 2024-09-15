@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_15_144807) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_15_152318) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,14 +36,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_15_144807) do
   end
 
   create_table "ruby_methods", force: :cascade do |t|
-    t.bigint "module_ref_id", null: false
+    t.bigint "ruby_module_id", null: false
     t.string "name"
     t.text "description"
     t.string "official_url"
     t.string "class_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["module_ref_id"], name: "index_ruby_methods_on_module_ref_id"
+    t.index ["ruby_module_id"], name: "index_ruby_methods_on_ruby_module_id"
   end
 
   create_table "ruby_modules", force: :cascade do |t|
@@ -70,5 +70,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_15_144807) do
   add_foreign_key "game_methods", "games"
   add_foreign_key "game_methods", "ruby_methods"
   add_foreign_key "games", "users"
-  add_foreign_key "ruby_methods", "ruby_modules", column: "module_ref_id"
+  add_foreign_key "ruby_methods", "ruby_modules"
 end
