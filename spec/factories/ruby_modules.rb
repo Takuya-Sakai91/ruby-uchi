@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :ruby_module do
-    name { "MyString" }
+    name { 'MyString' }
   end
 end
