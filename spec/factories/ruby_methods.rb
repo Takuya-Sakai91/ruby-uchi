@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :ruby_method do
-    module_ref { nil }
+    ruby_module { nil }
     name { 'MyString' }
     description { 'MyText' }
     official_url { 'MyString' }
