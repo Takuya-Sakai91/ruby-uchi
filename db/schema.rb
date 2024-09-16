@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_13_105135) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_15_152318) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "game_methods", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "ruby_method_id", null: false
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_game_methods_on_game_id"
+    t.index ["ruby_method_id"], name: "index_game_methods_on_ruby_method_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -23,6 +33,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_105135) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "ruby_methods", force: :cascade do |t|
+    t.bigint "ruby_module_id", null: false
+    t.string "name"
+    t.text "description"
+    t.string "official_url"
+    t.string "class_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ruby_module_id"], name: "index_ruby_methods_on_ruby_module_id"
+  end
+
+  create_table "ruby_modules", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +67,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_13_105135) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "game_methods", "games"
+  add_foreign_key "game_methods", "ruby_methods"
   add_foreign_key "games", "users"
+  add_foreign_key "ruby_methods", "ruby_modules"
 end
