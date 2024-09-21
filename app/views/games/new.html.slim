@@ -1,0 +1,12 @@
+main class="container mx-auto text-center py-8"
+  h1 class="text-4xl font-bold mb-4" SpaceかEnterを押してスタート！
+  p class="text-lg mb-4"
+    | ゲーム中は「Esc」キーですぐにタイピングをやり直すことができます。
+
+  div class="mb-4"
+    = link_to '遊び方', '#',
+      class: 'btn bg-red-600 hover:bg-red-700 text-white'
+
+  div
+    = link_to 'TOPへ戻る', root_path,
+      class: 'btn btn-outline btn-primary'
