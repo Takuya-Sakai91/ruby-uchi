@@ -22,22 +22,24 @@ export default function GameStartScreen() {
   };
 
   return (
-    <div className="flex-col text-center min-h-screen p-4">
-      <h1 className="text-4xl font-bold mb-4">
-        SpaceかEnterを押してスタート！
-      </h1>
-      <p className="text-lg mb-8">
-        ※ゲーム中は「Esc」キーですぐにタイピングをやり直すことができます。
-      </p>
-      <button
-        className="btn bg-red-600 hover:bg-red-700 text-white w-full mb-4 max-w-xs"
-        onClick={() => setIsModalOpen(true)}
-      >
-        遊び方
-      </button>
-      <a href="/" className="btn btn-outline btn-primary w-full max-w-xs">
-        TOPへ戻る
-      </a>
+    <div className="flex justify-center text-center min-h-screen p-4">
+      <div className="flex-col">
+        <h1 className="text-4xl font-bold mb-4">
+          SpaceかEnterを押してスタート！
+        </h1>
+        <p className="text-lg mb-8">
+          ※ゲーム中は「Esc」キーですぐにタイピングをやり直すことができます。
+        </p>
+        <button
+          className="btn bg-red-600 hover:bg-red-700 text-white w-full mb-4 max-w-xs"
+          onClick={() => setIsModalOpen(true)}
+        >
+          遊び方
+        </button>
+        <a href="/" className="btn btn-outline btn-primary w-full max-w-xs">
+          TOPへ戻る
+        </a>
+      </div>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <h2 className="text-2xl font-bold mb-4">遊び方</h2>
         <p>Ruby打ちはRubyメソッドも学べるタイピングゲームです。</p>
