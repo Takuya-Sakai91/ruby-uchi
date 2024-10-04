@@ -47,7 +47,7 @@ export const Modal = ({ open, setOpen, className, children }: ModalProps) => {
             onClick={(e) => e.stopPropagation()}
             className={cn(
               "w-full relative max-w-lg cursor-default overflow-hidden rounded-lg bg-white p-6 text-slate-700 shadow-[0_6px_30px_-4px_rgba(17,33,95,0.2)]",
-              className
+              className,
             )}
           >
             <motion.div
@@ -63,6 +63,6 @@ export const Modal = ({ open, setOpen, className, children }: ModalProps) => {
         </motion.div>
       )}
     </AnimatePresence>,
-    document.body
+    document.body,
   );
 };
