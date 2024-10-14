@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import TypingGame from "../src/TypingGame";
 
-ReactDOM.createRoot(document.getElementById("typing-game")!).render(
-  <React.StrictMode>
+createRoot(document.getElementById("typing-game")!).render(
+  <StrictMode>
     <TypingGame />
-  </React.StrictMode>,
+  </StrictMode>,
 )
