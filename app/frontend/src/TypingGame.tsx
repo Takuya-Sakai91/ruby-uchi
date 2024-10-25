@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { rubyMethods } from "./methods";
 
-export default function TypingGame({ gameId }: { gameId: number}) {
+export default function TypingGame({ gameId }: { gameId: number }) {
   const [inputValue, setInputValue] = useState("");
   const [currentMethod, setCurrentMethod] = useState(rubyMethods[0]);
   const [remainingTime, setRemainingTime] = useState(60);

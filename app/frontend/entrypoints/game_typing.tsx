@@ -9,6 +9,6 @@ if (gameId) {
   createRoot(gameElement!).render(
     <StrictMode>
       <TypingGame gameId={parseInt(gameId, 10)} />
-    </StrictMode>
+    </StrictMode>,
   );
 }

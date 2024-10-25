@@ -12,27 +12,16 @@ class GamesController < ApplicationController
   end
 
   def create
-    if current_user
-      @game = current_user.games.create(
-        remaining_time: 60,
-        score: 0,
-        correct_count: 0,
-        wrong_count: 0
-      )
-    else
-      @game = Game.create(
-        user_id: nil,
-        remaining_time: 60,
-        score: 0,
-        correct_count: 0,
-        wrong_count: 0
-      )
-    end
+    @game = if current_user
+              current_user.games.create(game_params)
+            else
+              Game.create(game_params.merge(user_id: nil))
+            end
 
     if @game.persisted?
       render json: { id: @game.id }, status: :created
     else
-      render json: { error: "ゲームの作成に失敗しました" }, status: :unprocessable_entity
+      render json: { error: 'ゲームの作成に失敗しました' }, status: :unprocessable_entity
     end
   end
 
@@ -41,4 +30,15 @@ class GamesController < ApplicationController
   def post; end
 
   def methods; end
+
+  private
+
+  def game_params
+    {
+      remaining_time: 60,
+      score: 0,
+      correct_count: 0,
+      wrong_count: 0
+    }
+  end
 end
