@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { rubyMethods } from "./methods";
 
-export default function TypingGame({ gameId }: { gameId: number }) {
+export default function TypingGame() {
   const [inputValue, setInputValue] = useState("");
   const [currentMethod, setCurrentMethod] = useState(rubyMethods[0]);
   const [remainingTime, setRemainingTime] = useState(60);
@@ -13,17 +13,18 @@ export default function TypingGame({ gameId }: { gameId: number }) {
 
     // タイマー処理
     const timer = setInterval(() => {
-      setRemainingTime((prevTime) => prevTime - 1);
+      setRemainingTime((prevTime) => {
+        if (prevTime === 1) {
+          clearInterval(timer); // タイマーを停止
+          setIsGameFinished(true); // ゲーム終了状態にする
+          return 0;
+        }
+        return prevTime - 1;
+      });
     }, 1000);
 
-    if (remainingTime === 0) {
-      clearInterval(timer);
-      setIsGameFinished(true); // ゲーム終了状態にする
-      endGame();
-    }
-
-    return () => clearInterval(timer);
-  }, [remainingTime]);
+    return () => clearInterval(timer); // クリーンアップ処理
+  }, []); //初回のみ実行するため依存配列は空
 
   useEffect(() => {
     // Escキーでリトライ、Shift + Dでメソッド解説
@@ -50,11 +51,6 @@ export default function TypingGame({ gameId }: { gameId: number }) {
       setCurrentMethod(nextMethod);
       setInputValue("");
     }
-  };
-
-  const endGame = () => {
-    // ゲーム終了時の処理（結果画面への遷移）
-    window.location.href = `/games/${gameId}`;
   };
 
   if (isGameFinished) {
