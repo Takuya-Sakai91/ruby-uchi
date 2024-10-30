@@ -7,3 +7,7 @@ Ruby打ちは、Rubyの学習者向けのタイピング練習ゲームです。
 
 ユーザーはブラウザ上でタイピングの練習をすることができます。
 Ruby打ちは、他のタイピング練習ゲームとは異なり、出題される問題がRubyのメソッドであるため、プレイしながらRubyのメソッドも自然に覚えることができるのが特徴です。
+
+## License
+
+ruby-uchi is [MIT licensed](https://github.com/Takuya-Sakai91/ruby-uchi/blob/main/LICENSE).
