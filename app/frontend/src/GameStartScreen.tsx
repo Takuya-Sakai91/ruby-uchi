@@ -12,14 +12,34 @@ export default function GameStartScreen() {
       }
     };
 
-    window.addEventListener("keydown", handleKeyPress);
+    addEventListener("keydown", handleKeyPress);
     return () => {
-      window.removeEventListener("keydown", handleKeyPress);
+      removeEventListener("keydown", handleKeyPress);
     };
   }, []);
 
-  const startGame = () => {
-    console.log("ゲームスタート");
+  const startGame = async () => {
+    try {
+      const response = await fetch("/games", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token":
+            document
+              .querySelector('meta[name="csrf-token"]')
+              ?.getAttribute("content") || "",
+        },
+      });
+
+      if (response.ok) {
+        const game = await response.json();
+        location.href = `/games/${game.id}`;
+      } else {
+        console.error("ゲームの作成に失敗しました");
+      }
+    } catch (error) {
+      console.error("通信エラー", error);
+    }
   };
 
   return (

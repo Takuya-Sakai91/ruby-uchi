@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import GameStartScreen from "../src/GameStartScreen";
 
-ReactDOM.createRoot(document.getElementById("game-start")!).render(
-  <React.StrictMode>
+createRoot(document.getElementById("game-start")!).render(
+  <StrictMode>
     <GameStartScreen />
-  </React.StrictMode>,
+  </StrictMode>,
 );
