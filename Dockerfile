@@ -26,7 +26,8 @@ ARG NODE_VERSION=20.17.0
 ARG YARN_VERSION=1.22.22
 RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION%%.*}.x | bash - && \
     apt-get install -y nodejs && \
-    npm install -g yarn@$YARN_VERSION
+    npm install -g yarn@$YARN_VERSION && \
+    yarn config set enableGlobalCache false
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
